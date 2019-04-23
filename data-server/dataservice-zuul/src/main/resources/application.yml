@@ -1,0 +1,29 @@
+spring:
+  mvc:
+    servlet:
+      load-on-startup: 1
+logging:
+  level:
+    root: info
+    com.cloud: debug
+  file: logs/${spring.application.name}.log
+zuul:
+  ignored-services: '*'
+  sensitive-headers:
+  routes:
+    oauth:
+      path: /api-o/**
+      serviceId: auth-service
+    api-b:
+      path: /api-b/**
+      serviceId: http://java:hello@localhost:8799/
+    api-a:
+      path: /api-a/**
+      serviceId: http://java:hello@localhost:8769/
+  host:
+    connect-timeout-millis: 10000
+    socket-timeout-millis: 60000
+  add-proxy-headers: true
+  ribbon:
+    eager-load:
+      enable: true

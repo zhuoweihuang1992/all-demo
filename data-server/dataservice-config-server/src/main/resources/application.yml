@@ -1,0 +1,18 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka #将服务注册到那个注册中心去
+server:
+  port: 8762
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/zhuoweihuang1992/springcloud-config.git  #github 仓库地址
+          search-paths: application #配置中心
+          username: zhuoweihuang1992
+          password: wei784805719

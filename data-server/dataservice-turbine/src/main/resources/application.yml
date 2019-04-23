@@ -1,0 +1,15 @@
+spring:
+  application.name: microservice-hystrix-turbine
+server:
+  port: 8766
+security.basic.enabled: false
+turbine:
+  aggregator:dsdaw
+    clusterConfig: default
+  appConfig: hystrix,feign-hystrix
+  clusterNameExpression: new String("default")
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
